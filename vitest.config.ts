@@ -5,6 +5,10 @@ import path from 'path';
 export default defineConfig({
   plugins: [react()],
   test: {
+    include: [
+      'tests/unit/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}',
+      'tests/integration/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}',
+    ],
     environment: 'jsdom',
     globals: true,
     setupFiles: ['./tests/setup.ts'],

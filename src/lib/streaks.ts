@@ -21,13 +21,13 @@ export function calculateCurrentStreak(
   if (!unique.includes(todayStr)) return 0;
 
   let streak = 0;
-  let current = new Date(todayStr + 'T00:00:00');
+  let current = new Date(todayStr + 'T00:00:00.000Z');
 
   while (true) {
     const dateStr = current.toISOString().slice(0, 10);
     if (!unique.includes(dateStr)) break;
     streak++;
-    current.setDate(current.getDate() - 1);
+    current.setUTCDate(current.getUTCDate() - 1);
   }
 
   return streak;
